@@ -94,7 +94,7 @@ class UserController{
                 User::auth($userId);
 
                 // Перенаправляем пользователя в закрытую часть - кабинет
-                header("Location: /myframework/cabinet");
+                header("Location: /cabinet");
             }
         }
 
@@ -114,6 +114,6 @@ class UserController{
         unset($_SESSION["user"]);
 
         // Перенаправляем пользователя на главную страницу
-        header("Location: /myframework");
+        header("Location: /");
     }
 }

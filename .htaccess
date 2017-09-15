@@ -2,7 +2,7 @@ AddDefaultCharset utf-8
 
 # Включаем modwrite
 RewriteEngine on
-RewriteBase /myframework/
+RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 # Все запросы перенапраляем в index.php

@@ -48,7 +48,7 @@ class AdminOrderController extends AdminBase
             Order::updateOrderById($id, $userName, $userPhone, $userComment, $date, $status);
 
             // Перенаправляем пользователя на страницу управлениями заказами
-            header("Location: /myframework/admin/order");
+            header("Location: /admin/order");
         }
 
         // Подключаем вид

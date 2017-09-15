@@ -6,8 +6,10 @@ return array(
     // Каталог:
     'catalog' => 'catalog/index', // actionIndex в CatalogController
     // Категория товаров:
-    'category/([0-9]+)/page-([0-9]+)' => 'catalog/category/$1/$2', // actionCategory в CatalogController
-    'category/([0-9]+)' => 'catalog/category/$1', // actionCategory в CatalogController
+    'category/([0-9]+)/([0-9]+)' => 'catalog/category/$1/$2', // actionCategory в CatalogController
+    'category/([0-9]+)/([0-9]+)/([0-9]+)/page-([0-9]+)' => 'catalog/category/$1/$2/$3', // actionCategory в CatalogController
+//    'category/([0-9]+)' => 'catalog/category/$1', // actionCategory в CatalogController
+
     // User
     'user/register'=>'user/register',
     'user/login'=>'user/login',
@@ -28,6 +30,7 @@ return array(
     'admin/product/create' => 'adminProduct/create',
     'admin/product/update/([0-9]+)' => 'adminProduct/update/$1',
     'admin/product/delete/([0-9]+)' => 'adminProduct/delete/$1',
+    'admin/product/subcategory' => 'adminProduct/subcategory', // actionCategory в CatalogController
     'admin/product' => 'adminProduct/index',
 
     // Управление категориями:
@@ -47,7 +50,8 @@ return array(
 
     'contact'=>'site/contact',
     'search'=>'site/search',
-    'myframework'=>'site/index',// Main page
+    'pagination'=>'site/pagination',
+    ''=>'site/index',// Main page
 //    'myframework'=>'site/pagination',// Main page
 
 );

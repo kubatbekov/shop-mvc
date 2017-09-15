@@ -111,7 +111,7 @@ class User {
             return $_SESSION['user'];
         }
 
-        header("Location:/myframework/user/login");
+        header("Location:/user/login");
 
     }
 

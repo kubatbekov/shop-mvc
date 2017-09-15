@@ -8,8 +8,6 @@ class ProductController{
           */
     public function actionView($product_id){
 
-        $categories=Category::getCategoriesList();
-
         $product=Product::getProductById($product_id);
         require_once (ROOT.'/views/product/view.php');
         return true;

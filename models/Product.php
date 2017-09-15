@@ -1,7 +1,7 @@
 <?php
 
 class Product {
-    const SHOW_BY_DEFAULT=6;
+    const SHOW_BY_DEFAULT=2;
 
     /**
      * Возвращает массив последних товаров
@@ -78,7 +78,7 @@ class Product {
      * @param type $page [optional] <p>Номер страницы</p>
      * @return type <p>Массив с товарами</p>
      */
-    public static function getProductsListByCategory($categoryId, $page = 1)
+    public static function getProductsListByCategory($categoryId,$subcategoryId, $page = 1)
     {
         $limit = Product::SHOW_BY_DEFAULT;
         // Смещение (для запроса)
@@ -89,12 +89,13 @@ class Product {
 
         // Текст запроса к БД
         $sql = 'SELECT id, name, price, is_new FROM product '
-            . 'WHERE status = 1 AND category_id = :category_id '
+            . 'WHERE status = 1 AND category_id = :category_id AND subcategory_id = :subcategory_id '
             . 'ORDER BY id ASC LIMIT :limit OFFSET :offset';
 
         // Используется подготовленный запрос
         $result = $db->prepare($sql);
         $result->bindParam(':category_id', $categoryId, PDO::PARAM_INT);
+        $result->bindParam(':subcategory_id', $subcategoryId, PDO::PARAM_INT);
         $result->bindParam(':limit', $limit, PDO::PARAM_INT);
         $result->bindParam(':offset', $offset, PDO::PARAM_INT);
 
@@ -175,10 +176,10 @@ class Product {
 
         // Текст запроса к БД
         $sql = 'INSERT INTO product '
-            . '(name, code, price, category_id, brand, availability,'
+            . '(name, code, price, category_id,subcategory_id, brand, availability,'
             . 'description, is_new, is_recommended, status)'
             . 'VALUES '
-            . '(:name, :code, :price, :category_id, :brand, :availability,'
+            . '(:name, :code, :price, :category_id,:subcategory_id, :brand, :availability,'
             . ':description, :is_new, :is_recommended, :status)';
 
         // Получение и возврат результатов. Используется подготовленный запрос
@@ -187,6 +188,7 @@ class Product {
         $result->bindParam(':code', $options['code'], PDO::PARAM_STR);
         $result->bindParam(':price', $options['price'], PDO::PARAM_STR);
         $result->bindParam(':category_id', $options['category_id'], PDO::PARAM_INT);
+        $result->bindParam(':subcategory_id', $options['subcategory_id'], PDO::PARAM_INT);
         $result->bindParam(':brand', $options['brand'], PDO::PARAM_STR);
         $result->bindParam(':availability', $options['availability'], PDO::PARAM_INT);
         $result->bindParam(':description', $options['description'], PDO::PARAM_STR);
@@ -219,6 +221,7 @@ class Product {
                 code = :code, 
                 price = :price, 
                 category_id = :category_id, 
+                subcategory_id = :subcategory_id, 
                 brand = :brand, 
                 availability = :availability, 
                 description = :description, 
@@ -234,6 +237,7 @@ class Product {
         $result->bindParam(':code', $options['code'], PDO::PARAM_STR);
         $result->bindParam(':price', $options['price'], PDO::PARAM_STR);
         $result->bindParam(':category_id', $options['category_id'], PDO::PARAM_INT);
+        $result->bindParam(':subcategory_id', $options['subcategory_id'], PDO::PARAM_INT);
         $result->bindParam(':brand', $options['brand'], PDO::PARAM_STR);
         $result->bindParam(':availability', $options['availability'], PDO::PARAM_INT);
         $result->bindParam(':description', $options['description'], PDO::PARAM_STR);

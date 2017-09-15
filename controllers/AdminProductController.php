@@ -14,6 +14,15 @@ class AdminProductController extends AdminBase
         return true;
     }
 
+    public function actionSubcategory()
+    {
+        $id=$_POST['value'];
+        $subcategories=Category::getSubCategoriesList($id);
+        // Подключаем вид
+        require_once(ROOT . '/views/admin_product/subcategory.php');
+        return true;
+    }
+
     /**
      * Action для страницы "Добавить товар"
      */
@@ -33,6 +42,7 @@ class AdminProductController extends AdminBase
             $options['code'] = $_POST['code'];
             $options['price'] = $_POST['price'];
             $options['category_id'] = $_POST['category_id'];
+            $options['subcategory_id'] = $_POST['subcategory_id'];
             $options['brand'] = $_POST['brand'];
             $options['availability'] = $_POST['availability'];
             $options['description'] = $_POST['description'];
@@ -63,7 +73,7 @@ class AdminProductController extends AdminBase
                 };
 
                 // Перенаправляем пользователя на страницу управлениями товарами
-                header("Location: /myframework/admin/product");
+                header("Location: /admin/product");
             }
         }
 
@@ -95,6 +105,7 @@ class AdminProductController extends AdminBase
             $options['code'] = $_POST['code'];
             $options['price'] = $_POST['price'];
             $options['category_id'] = $_POST['category_id'];
+            $options['subcategory_id'] = $_POST['subcategory_id'];
             $options['brand'] = $_POST['brand'];
             $options['availability'] = $_POST['availability'];
             $options['description'] = $_POST['description'];
@@ -116,7 +127,7 @@ class AdminProductController extends AdminBase
             }
 
             // Перенаправляем пользователя на страницу управлениями товарами
-            header("Location: /myframework/admin/product");
+            header("Location: /admin/product");
         }
 
         // Подключаем вид

@@ -6,8 +6,6 @@ class SiteController {
      * Action для главной страницы
      */
     public function actionIndex(){
-        // // Список категорий для левого меню
-        $categories=Category::getCategoriesList();
 
         //Список рекоммендуемых товаров
         $sliderProducts=Product::getRecommendedProducts();
@@ -16,6 +14,7 @@ class SiteController {
         require_once (ROOT.'/views/site/index.php');
         return true;
     }
+
 
     /**
      * Action для страницы "Контакты"
@@ -63,12 +62,8 @@ class SiteController {
      * Action для страницы "Поиска по сайту"
      */
     public function actionSearch(){
-        // Список категорий для левого меню
-        $categories=Category::getCategoriesList();
-
         // текст из формы
         $searchText=$_POST['searchText'];
-
         // Результат поиска
         $searchProducts=Product::getSearchProducts($searchText);
 

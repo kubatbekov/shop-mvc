@@ -8,7 +8,17 @@ class Category {
              */
     public static function getCategoriesList(){
         $db=Db::getConnection();
-        $result=$db->query("SELECT * FROM `category` ORDER BY `sort_order` ASC ");
+        $result=$db->query("SELECT * FROM `category` WHERE `parent_id`=0 ORDER BY `sort_order` ASC ");
+        $rows=$result->fetchAll(PDO::FETCH_OBJ);
+        return $rows;
+    }            /**
+             * Возвращает список Подкатегорий
+             * @return  object <p>объекты с товарами</p>
+             */
+    public static function getSubCategoriesList($parent_id){
+        $db=Db::getConnection();
+        $sql="select * from category WHERE parent_id=$parent_id";
+        $result=$db->query($sql);
         $rows=$result->fetchAll(PDO::FETCH_OBJ);
         return $rows;
     }
@@ -24,7 +34,7 @@ class Category {
         $db = Db::getConnection();
 
         // Запрос к БД
-        $result = $db->query('SELECT id, name, sort_order, status FROM category ORDER BY sort_order ASC');
+        $result = $db->query('SELECT id, name, sort_order, status FROM category WHERE `parent_id`=0 ORDER BY sort_order ASC');
 
         // Получение и возврат результатов
         $categoryList = array();

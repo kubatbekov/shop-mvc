@@ -1,10 +1,8 @@
 <?php include ROOT . '/views/layouts/header.php'; ?>
 
     <section>
-        <div class="container">
-            <div class="row">
 
-                <div class="col-sm-4 col-sm-offset-4 padding-right">
+                <div class="col-sm-4 col-sm-offset-2 padding-right">
 
                     <?php if ($result): ?>
                         <p>Сообщение отправлено! Мы ответим Вам на указанный email.</p>
@@ -36,8 +34,6 @@
                     <br/>
                     <br/>
                 </div>
-            </div>
-        </div>
     </section>
 
 <?php include ROOT . '/views/layouts/footer.php'; ?>

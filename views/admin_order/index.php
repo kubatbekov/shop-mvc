@@ -8,7 +8,7 @@
 
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><a href="/myframework/admin">Админпанель</a></li>
+                    <li><a href="/admin">Админпанель</a></li>
                     <li class="active">Управление заказами</li>
                 </ol>
             </div>
@@ -40,9 +40,9 @@
                         <td><?php echo $order['user_phone']; ?></td>
                         <td><?php echo $order['date']; ?></td>
                         <td><?php echo Order::getStatusText($order['status']); ?></td>
-                        <td><a href="/myframework/admin/order/view/<?php echo $order['id']; ?>" title="Смотреть"><i class="fa fa-eye"></i></a></td>
-                        <td><a href="/myframework/admin/order/update/<?php echo $order['id']; ?>" title="Редактировать"><i class="fa fa-pencil-square-o"></i></a></td>
-                        <td><a href="/myframework/admin/order/delete/<?php echo $order['id']; ?>" onclick="return delProduct()" title="Удалить"><i class="fa fa-times"></i></a></td>
+                        <td><a href="/admin/order/view/<?php echo $order['id']; ?>" title="Смотреть"><i class="fa fa-eye"></i></a></td>
+                        <td><a href="/admin/order/update/<?php echo $order['id']; ?>" title="Редактировать"><i class="fa fa-pencil-square-o"></i></a></td>
+                        <td><a href="/admin/order/delete/<?php echo $order['id']; ?>" onclick="return delProduct()" title="Удалить"><i class="fa fa-times"></i></a></td>
                     </tr>
                 <?php endforeach; ?>
             </table>

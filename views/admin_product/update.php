@@ -8,7 +8,7 @@
 
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><a href="/myframework/admin">Админпанель</a></li>
+                    <li><a href="/admin">Админпанель</a></li>
                     <li class="active">Управление товарами</li>
                 </ol>
             </div>
@@ -32,7 +32,7 @@
                         <input type="text" name="price" placeholder="" value="<?php echo $product->price; ?>">
 
                         <p>Категория</p>
-                        <select name="category_id">
+                        <select name="category_id" id="Selectcategory">
                             <?php if (is_array($categoriesList)): ?>
                                 <?php foreach ($categoriesList as $category): ?>
                                     <option value="<?php echo $category['id']; ?>"
@@ -44,13 +44,20 @@
                         </select>
 
                         <br/><br/>
+                        <p>Подкатегория</p>
+                        <select name="subcategory_id" id="subcategory">
+                                <option value="<?php //echo $subcategory->id; ?>">
+                                    <?php echo $product->name; ?>
+                                </option>
+                        </select>
 
+                        <br/><br/>
                         <p>Производитель</p>
                         <input type="text" name="brand" placeholder="" value="<?php echo $product->brand; ?>">
 
                         <p>Изображение товара</p>
-                        <img src="/myframework/<?php echo Product::getImage($product->id ); ?>" width="200" alt="" /><br><br>
-<!--                        <img src="/myframework/upload/images/products/16.jpg" width="200" alt="" />-->
+                        <img src="/<?php echo Product::getImage($product->id ); ?>" width="200" alt="" /><br><br>
+<!--                        <img src="/upload/images/products/16.jpg" width="200" alt="" />-->
                         <input type="file" name="image" placeholder="" value="<?php echo $product->image ; ?>">
 
                         <p>Детальное описание</p>

@@ -19,7 +19,7 @@ class Router
     public static function ErrorPage404(){
 //        header('HTTP/1.1 404 Not Found');
 //        header("Status: 404 Not Found");
-        header('Location:/myframework/404');
+        header('Location:/404');
     }
 
     public function run(){
@@ -38,9 +38,7 @@ class Router
                 // Если есть совпадение определить имя Controller, action и параметры
                 $segments=explode('/',$internalRoute); // Превращаем (строку запроса) в массив через разделителя
 
-                if($uriPattern!="myframework"){
-                    array_shift($segments);// Удаляем первый элемент массива (т.е название сайта) т.к работаем на локальном сервере в боевой сервере надо удалить эту строку
-                }
+               
 
                         // Определяем имя контроллера и action
                 $controllerName=array_shift($segments).'Controller';  // Имя контроллера
@@ -58,8 +56,10 @@ class Router
 
 
 
+
                 // Создать объект и вызвать метод (т.е action)
                 $controllerObject=new $controllerName;
+
                 // Передаем в action параметры запроса (т.е категорию и id запися)
 //                $result=$controllerObject->$actionName($parametres);
 

@@ -37,3 +37,40 @@ function delProduct(){
         return false;
     }
 }
+// Выбираем под категорию
+$(document).ready(function () {
+    $("#Selectcategory").bind("change", function () {
+        // отправляем ajax запрос к action
+        var Selectvalue=$("#Selectcategory").val();
+        $.ajax({
+            url: "/admin/product/subcategory",
+            method: 'POST',
+            data:({value:Selectvalue}),
+            success:function(response){
+                $("#subcategory").html(response);
+            },
+            error:function () {
+                alert('error ajax');
+            }
+        });
+    });
+});
+
+// Добавляем товар в корзину
+$(document).ready(function () {
+    $(".add-to-cart").bind("click", function () {
+        // Получаем id товара
+        var id=$(this).attr('data-id');
+        // отправляем ajax запрос к action
+        $.ajax({
+            url: "/cart/addAjax/"+id,
+            method: 'POST',
+            success:function(response){
+                $("#cartCount").html(response);
+            },
+            error:function () {
+                alert('error ajax');
+            }
+        });
+    });
+});

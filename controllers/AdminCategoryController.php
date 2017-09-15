@@ -85,7 +85,7 @@ class AdminCategoryController extends AdminBase
             Category::updateCategoryById($id, $name, $sortOrder, $status);
 
             // Перенаправляем пользователя на страницу управлениями категориями
-            header("Location: /myframework/admin/category");
+            header("Location: /admin/category");
         }
 
         // Подключаем вид

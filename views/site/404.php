@@ -1,3 +1,3 @@
 
-                    <img src="/myframework/templates/images/404/404.png" alt="">
+                    <img src="/templates/images/404/404.png" alt="">
 

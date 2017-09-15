@@ -8,12 +8,12 @@
 
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><a href="/myframework/admin">Админпанель</a></li>
+                    <li><a href="/admin">Админпанель</a></li>
                     <li class="active">Управление товарами</li>
                 </ol>
             </div>
 
-            <a href="/myframework/admin/product/create" class="btn btn-default back"><i class="fa fa-plus"></i> Добавить товар</a>
+            <a href="/admin/product/create" class="btn btn-default back"><i class="fa fa-plus"></i> Добавить товар</a>
 
             <h4>Список товаров</h4>
 
@@ -34,8 +34,8 @@
                         <td><?php echo $product->code; ?></td>
                         <td><?php echo $product->name; ?></td>
                         <td><?php echo $product->price; ?></td>
-                        <td><a href="/myframework/admin/product/update/<?php echo $product->id; ?>" title="Редактировать"><i class="fa fa-pencil-square-o"></i></a></td>
-                        <td><a href="/myframework/admin/product/delete/<?php echo $product->id; ?>" title="Удалить" class="deleteProduct" onclick="return delProduct()"><i class="fa fa-times"></i></a></td>
+                        <td><a href="/admin/product/update/<?php echo $product->id; ?>" title="Редактировать"><i class="fa fa-pencil-square-o"></i></a></td>
+                        <td><a href="/admin/product/delete/<?php echo $product->id; ?>" title="Удалить" class="deleteProduct" onclick="return delProduct()"><i class="fa fa-times"></i></a></td>
                     </tr>
                 <?php endforeach; ?>
             </table>

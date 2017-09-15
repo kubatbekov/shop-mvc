@@ -8,7 +8,7 @@
 
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><a href="/myframework/admin">Админпанель</a></li>
+                    <li><a href="/admin">Админпанель</a></li>
                     <li class="active">Управление товарами</li>
                 </ol>
             </div>
@@ -40,7 +40,8 @@
                         <input type="text" name="price" placeholder="" value="">
 
                         <p>Категория</p>
-                        <select name="category_id">
+                        <select name="category_id" id="Selectcategory">
+                            <option >Выберите категорию....</option>
                             <?php if (is_array($categoriesList)): ?>
                                 <?php foreach ($categoriesList as $category): ?>
                                     <option value="<?php echo $category['id']; ?>">
@@ -48,6 +49,12 @@
                                     </option>
                                 <?php endforeach; ?>
                             <?php endif; ?>
+                        </select>
+
+                        <br/><br/>
+                        <p>Подкатегория</p>
+                        <select name="subcategory_id" id="subcategory">
+
                         </select>
 
                         <br/><br/>
@@ -109,3 +116,6 @@
 
 <?php include ROOT . '/views/layouts/footer_admin.php'; ?>
 
+<script>
+
+</script>

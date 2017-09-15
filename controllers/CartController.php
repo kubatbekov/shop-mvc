@@ -82,7 +82,7 @@ class CartController
 
         // Если товаров нет, отправляем пользователи искать товары на главную
         if ($productsInCart == false) {
-            header("Location: /myframework");
+            header("Location: /");
         }
 
         // Список категорий для левого меню
@@ -144,8 +144,8 @@ class CartController
                 if ($result) {
                     // Если заказ успешно сохранен
                     // Оповещаем администратора о новом заказе по почте
-                    $adminEmail = 'php.start@mail.ru';
-                    $message = '<a href="http://digital-mafia.net/admin/orders">Список заказов</a>';
+                    $adminEmail = 'admin@mail.ru';
+                    $message = '<a href="http://admin/orders">Список заказов</a>';
                     $subject = 'Новый заказ!';
                     mail($adminEmail, $subject, $message);
 
